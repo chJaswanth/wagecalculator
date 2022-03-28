@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Salary Calculator</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+      <!-- heading -->
+      <section class="hero is-primary is-medium">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title is-size-2">
+              Find your hourly wage from yearly salary
+            </h1>
+            <h2 class="subtitle is-size-3">
+              Or the opposite, do whatever man.
+            </h2>
+          </div>
+        </div>
+      </section>
+      <!-- section with hourly and yearly wage -->
+      <section class="section columns is-two-thirds bg-grey" >
+        <!-- section for Yearly to hourly -->
+          <section class="column is-one-third is-offset-1 card p-4  mb-2`">
+            <div class="field">
+                <label class="label"><h2 class="title is-size-3">Enter your yearly Salary</h2></label>
+                  <div class="control" >
+                    <input id="perYear" class="input" type="number" placeholder="Enter your yearly Salary">
+                    <button id="submitYearly" type="button" class="button is-primary mt-2">
+                            Calculate my hourly wage
+                    </button>
+                  </div>
+            </div>
+            <div>
+                <h2 class="tagline is-size-5">
+                    Salary per hour: <span id="salaryPerHour"></span>
+                </h2>
+            </div>
+          </section>
+          <!-- Hourly to yearly  -->
+          <section class="column is-one-third is-offset-1 card p-4">
+              <div class="field">
+                <label class="label"><h2 class="title is-size-3">Enter your hourly wage</h2></label>
+                <div class="control">
+                  <input id="perHour" class="input" type="number" placeholder="Enter your hourly wage">
+                  <button id="submitHourly" type="button" class="button is-primary mt-2">
+                        Calculate my yearly package
+                  </button>
+                </div>
+              </div>
+              <div>
+                  <h2 class="tagline is-size-5">
+                    Salary for the year: <span id="salaryPerYear"></span>
+                  </h2>
+              </div>
+          </section>
+      </section> 
+        <script src="app.js"></script>
+    </body>
+</html>

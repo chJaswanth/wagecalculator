@@ -22,6 +22,38 @@
           </div>
         </div>
       </section>
+      <section class="section column">
+        <div>
+          <h2 class="title is-size-3">
+            Select your province
+          </h2>
+          <button class="js-modal-trigger button is-primary" data-target="modal-js-example">
+            Pick a province
+          </button>
+          <!-- modal element for popup -->
+            <div id="modal-js-example" class="modal">
+              <div class="modal-background"></div>
+            <!-- Modal content -->
+              <div class="modal-content container">
+                <div class="box">
+                  <p>Select the province you live in</p>
+                  <div class="select">
+                    <select size="8">
+                      <option value="Argentina">Ontario</option>
+                      <option value="Bolivia">British Colombia</option>
+                      <option value="Brazil">Alberta</option>
+                      <option value="Chile">Manitoba</option>
+                      <option value="Colombia">Saskatchewan</option>
+                      <option value="Ecuador">New Foundland</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+          
+              <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </div>
+      </section>
       <!-- section with hourly and yearly wage -->
       <section class="section columns is-two-thirds bg-grey" >
         <!-- section for Yearly to hourly -->
@@ -60,5 +92,6 @@
           </section>
       </section> 
         <script src="app.js"></script>
+        <script src="modal.js"></script>
     </body>
 </html>

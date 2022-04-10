@@ -1,3 +1,5 @@
+
+
 // to hold salaries
 let yearlySalary;
 let hourlyWage;

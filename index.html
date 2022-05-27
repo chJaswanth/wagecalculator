@@ -25,33 +25,18 @@
       <section class="section column">
         <div>
           <h2 class="title is-size-3">
-            Select your province
+          Province or Territory you live in
           </h2>
-          <button class="js-modal-trigger button is-primary" data-target="modal-js-example">
-            Pick a province
-          </button>
-          <!-- modal element for popup -->
-            <div id="modal-js-example" class="modal">
-              <div class="modal-background"></div>
-            <!-- Modal content -->
-              <div class="modal-content container">
-                <div class="box">
-                  <p>Select the province you live in</p>
-                  <div class="select mt-3">
-                    <select>
-                      <option value="1">Ontario</option>
-                      <option value="2">British Colombia</option>
-                      <option value="3">Alberta</option>
-                      <option value="4">Manitoba</option>
-                      <option value="5">Saskatchewan</option>
-                      <option value="6">New Foundland</option>
-                      </select>
-                  </div>
-                </div>
-              </div>
-          
-              <button class="modal-close is-large" aria-label="close"></button>
-            </div>
+          <div class="select mt-3">
+            <select id="userProvince">
+              <option value="Ontario">Ontario</option>
+              <option value="British Colombia">British Colombia</option>
+              <option value="Alberta">Alberta</option>
+              <option value="Manitoba">Manitoba</option>
+              <option value="Saskatchewan">Saskatchewan</option>
+              <option value="New Foundland">New Foundland</option>
+              </select>
+          </div>
         </div>
       </section>
       <!-- section with hourly and yearly wage -->

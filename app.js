@@ -3,9 +3,20 @@ let yearlySalary;
 let hourlyWage;
 let federalTax=0;
 let provincialTax = 0;
-let userProvince;
+let userProvince = 'Ontario';
 let userProvinceInput = document.querySelector('#userProvince');
 
+
+//local storage for saving the province
+if( localStorage.getItem('UserProvince')!= null ) {
+    userProvince = localStorage.getItem('UserProvince');
+    let selectVar = document.querySelector('select');
+    for(let i=0; i<selectVar.length; i++) {
+        if( (selectVar[i].value) === userProvince ) {
+            selectVar[i].setAttribute('selected','selected');
+        };
+    }
+}
 // calculation for federal taxes
 function calFederalTax(ySal) {
        if(ySal < 49020) {
@@ -26,13 +37,16 @@ function calFederalTax(ySal) {
 }
 function calProvincialTax(ySal,Province) {
     //ySal -> Yearly salary : fTax -> Federal Tax : userSelectProvince -> User selected province
-    if(Province =='Ontario') {
+    
+    // Federal tax for Ontario
+    if(Province === 'Ontario') {
         if(ySal < 46226) {
-            provincialTax += ySal*0.0505;
+            provincialTax = ySal*0.0505;
             return provincialTax;
         }
-        if( ySal >= 46226 && ySal <= 92454 ) {
-            provincialTax += 2334.413;
+        else {
+            provincialTax = 2334.413;
+            return provincialTax;
         }
     }
 }
@@ -46,20 +60,21 @@ let salaryInHours = document.querySelector('#salaryPerHour');
 let salaryInYears = document.querySelector('#salaryPerYear');
 
 // entering userprovince 
-    userProvinceInput.addEventListener('change', () => {
-    userProvince = this.value;
+    userProvinceInput.addEventListener('change', (e) => {
+    userProvince = userProvinceInput.value;
+    localStorage.setItem('UserProvince', userProvince);
 });
 
 perYear.addEventListener('change', () => {
     yearlySalary = document.querySelector('#perYear').value;
     salaryInHours.innerText = Math.round(yearlySalary/2080);
-
     //calling function to calculate federal tax
     let fedTax = calFederalTax(yearlySalary);
     //calling function to calculate provincial tax
     let provTax = calProvincialTax(yearlySalary,userProvince);
     console.log(`${yearlySalary} ${fedTax} ${userProvince}`);
     console.log(`Federal tax = ${fedTax} and provincial tax is ${provTax}`);
+    
 });
 
 perHour.addEventListener('change', () => {

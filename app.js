@@ -121,7 +121,8 @@ let salaryInYears = document.querySelector('#salaryPerYear');
     localStorage.setItem('UserProvince', userProvince);
 });
 
-perYear.addEventListener('change', () => {
+submitYearly.addEventListener('click', () => {
+    console.log('button clicked')
     yearlySalary = document.querySelector('#perYear').value;
     salaryInHours.innerText = Math.round(yearlySalary/2080);
     //calling function to calculate federal tax
@@ -131,7 +132,7 @@ perYear.addEventListener('change', () => {
     console.log(`${yearlySalary} ${fedTax} ${userProvince}`);
     console.log(`Federal tax = ${fedTax} and provincial tax is ${provTax}`);
 });
-perHour.addEventListener('change', () => {
+submitHourly.addEventListener('click', () => {
     hourlyWage = document.querySelector('#perHour').value;
     ySalFromHourlyWage = `${Math.round(hourlyWage*2080)}`;
     salaryInYears.innerText = ySalFromHourlyWage;

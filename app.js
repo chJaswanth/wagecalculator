@@ -8,7 +8,6 @@ let totalHourlyTax = 0;
 let userProvince = 'Ontario';
 let userProvinceInput = document.querySelector('#userProvince');
 
-
 //local storage for saving the province
 if( localStorage.getItem('UserProvince')!= null ) {
     userProvince = localStorage.getItem('UserProvince');
@@ -22,7 +21,7 @@ if( localStorage.getItem('UserProvince')!= null ) {
 // calculation for federal taxes
 function calFederalTax(ySal) {
        if(ySal < 49020) {
-           return 49020*.15;
+           return ySal*.15;
        }
        else if( ySal >=49020 && ySal <= 98040) {
            return ( (ySal - 49020)*.205 +7353);
@@ -37,8 +36,8 @@ function calFederalTax(ySal) {
            return ((ySal-216511)*.33 + 50140 );
        }
 }
-     //ySal -> Yearly salary : fTax -> Federal Tax : userSelectProvince -> User selected province
-    function calProvincialTax(ySal,Province) {
+//ySal -> Yearly salary : fTax -> Federal Tax : userSelectProvince -> User selected province
+function calProvincialTax(ySal,Province) {
 
         // procincial tax for Ontario
         if(Province === 'Ontario') {
@@ -111,9 +110,13 @@ function calFederalTax(ySal) {
 let submitYearly = document.querySelector('#submitYearly');
 let submitHourly = document.querySelector('#submitHourly');
 
-// objects to show the wages
+// objects to show the wages and taxes
 let salaryInHours = document.querySelector('#salaryPerHour');
 let salaryInYears = document.querySelector('#salaryPerYear');
+
+// hold taxAmount
+let totalTaxContent = document.querySelector('#taxMessage');
+console.log(totalTaxContent.innerHTML)
 
 // entering userprovince and localStorage
     userProvinceInput.addEventListener('change', (e) => {
@@ -131,6 +134,9 @@ submitYearly.addEventListener('click', () => {
     let provTax = calProvincialTax(yearlySalary,userProvince);
     console.log(`${yearlySalary} ${fedTax} ${userProvince}`);
     console.log(`Federal tax = ${fedTax} and provincial tax is ${provTax}`);
+    totalTax = fedTax + provTax;
+    console.log(`Total tax is ${totalTax}`);
+    totalTaxContent.innerHTML = `The total tax paid is $${totalTax}, which is ${((totalTax/(yearlySalary)).toFixed(2))*100}% which comes down to $${(totalTax/2080).toFixed(2)} every hour you work`;
 });
 submitHourly.addEventListener('click', () => {
     hourlyWage = document.querySelector('#perHour').value;
@@ -138,7 +144,12 @@ submitHourly.addEventListener('click', () => {
     salaryInYears.innerText = ySalFromHourlyWage;
     let fedTax = calFederalTax(ySalFromHourlyWage);
     let provTax = calProvincialTax(ySalFromHourlyWage,userProvince);
-    console.log(`Federal tax = ${fedTax} and provincial tax is ${provTax}`)
+    console.log(`Federal tax = ${fedTax} and provincial tax is ${provTax}`);
+    totalTax = Math.round(fedTax + provTax);
+    console.log(`Total tax is ${totalTax}`);
    // console.log(ySalFromHourlyWage);
+    totalTaxContent.innerHTML = `The total tax paid is $${totalTax}, which is ${((totalTax/(ySalFromHourlyWage)).toFixed(2))*100}% which comes down to $${(totalTax/2080).toFixed(2)} every hour you work`; 
 });
 
+// percentage of tax is totaltax/total salary * 100 
+// tax per hour is, total tax/2080

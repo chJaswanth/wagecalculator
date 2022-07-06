@@ -9,21 +9,8 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-      <!-- heading -->
-      <section class="hero is-primary is-small">
-        <div class="hero-body">
-          <div class="container">
-            <h3 class="title is-size-3">
-              Tax and Wage Calculator
-            </h3>
-            <p class="subtitle is-size-5">Convert Hourly and Yearly wages, find taxed salary
-            </h3>
-            </h2>
-          </div>
-        </div>
-      </section>
-      <section class="container  section">
-        <div>
+      <section class="columns container section">
+        <div class="column">
           <h2 class="title is-size-3">
           Province or Territory you live in
           </h2>
@@ -36,6 +23,9 @@
               <option value="Ontario">Ontario</option>
               </select>
           </div>
+        </div>
+        <div class="column" id="taxMessage">
+          Total Tax paid is 0$
         </div>
       </section>
       <!-- section with hourly and yearly wage -->
@@ -78,6 +68,18 @@
               </div>
           </section>
       </section> 
+      <section class="hero is-primary is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h3 class="title is-size-3">
+              Tax and Wage Calculator
+            </h3>
+            <p class="subtitle is-size-5">Convert Hourly and Yearly wages, find taxed salary
+            </h3>
+            </h2>
+          </div>
+        </div>
+      </section>
         <script src="app.js"></script>
         <script src="modal.js"></script>
     </body>

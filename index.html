@@ -9,18 +9,32 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-      <section class="columns container section">
+      <!-- title and description section -->
+      <section class="hero is-primary is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h3 class="title is-size-3">
+              Tax and Wage Calculator
+            </h3>
+            <p class="subtitle is-size-5">Convert Hourly and Yearly wages, find taxed salary
+            </h3>
+            </h2>
+          </div>
+        </div>
+      </section>
+      <!-- section with drop down -->
+      <section class="columns container mar-25 section">
         <div class="column">
           <h2 class="title is-size-3">
           Province or Territory you live in
           </h2>
           <div class="select mt-3">
             <select id="userProvince">
+              <option value="Ontario">Ontario</option>
               <option value="NewFoundland">Newfoundland and Labrador
               </option>
               <option value="PrinceEdwardIsland">Prince Edward Island</option>
-              <option value="NovaScotia">Nova Scotia</option>
-              <option value="Ontario">Ontario</option>
+              <option value="NovaScotia">Nova Scotia</option>              
               </select>
           </div>
         </div>
@@ -68,18 +82,7 @@
               </div>
           </section>
       </section> 
-      <section class="hero is-primary is-small">
-        <div class="hero-body">
-          <div class="container">
-            <h3 class="title is-size-3">
-              Tax and Wage Calculator
-            </h3>
-            <p class="subtitle is-size-5">Convert Hourly and Yearly wages, find taxed salary
-            </h3>
-            </h2>
-          </div>
-        </div>
-      </section>
+      
         <script src="app.js"></script>
         <script src="modal.js"></script>
     </body>

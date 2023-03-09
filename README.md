@@ -1,3 +1,6 @@
 # wagecalculator
 Wage calculator for Canadians. 
-Enter your yearly package to find your hourly wage or your hourly wage to find your yearly package
+Enter your yearly package to find your hourly wage or your hourly wage to find your yearly package 
+
+
+[Wage calculator](https://chjaswanth.github.io/wagecalculator/)

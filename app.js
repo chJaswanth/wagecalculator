@@ -113,6 +113,8 @@ let submitHourly = document.querySelector('#submitHourly');
 // objects to show the wages and taxes
 let salaryInHours = document.querySelector('#salaryPerHour');
 let salaryInYears = document.querySelector('#salaryPerYear');
+let salaryBiWeeklyFromYearly = document.querySelector('#salaryBiWeeklyFromYearly');
+let salaryBiWeeklyFromHourly = document.querySelector('#salaryBiWeeklyFromHourly');
 
 // hold taxAmount
 let totalTaxContent = document.querySelector('#taxMessage');
@@ -127,7 +129,8 @@ console.log(totalTaxContent.innerHTML)
 submitYearly.addEventListener('click', () => {
     console.log('button clicked')
     yearlySalary = document.querySelector('#perYear').value;
-    salaryInHours.innerText = Math.round(yearlySalary/2080);
+    salaryInHours.innerText = Math.round(yearlySalary/1820);
+    
     //calling function to calculate federal tax
     let fedTax = calFederalTax(yearlySalary);
     //calling function to calculate provincial tax
@@ -135,17 +138,26 @@ submitYearly.addEventListener('click', () => {
     console.log(`${yearlySalary} ${fedTax} ${userProvince}`);
     console.log(`Federal tax = ${fedTax} and provincial tax is ${provTax}`);
     totalTax = fedTax + provTax;
+
+    // adding text to the salarybi weekly 
+    salaryBiWeeklyFromYearly.innerText = Math.round((yearlySalary-totalTax)/26);
+    
     console.log(`Total tax is ${totalTax}`);
     totalTaxContent.innerHTML = `The total tax paid is $${totalTax}, which is ${((totalTax/(yearlySalary)).toFixed(2))*100}% which comes down to $${(totalTax/2080).toFixed(2)} every hour you work`;
 });
 submitHourly.addEventListener('click', () => {
     hourlyWage = document.querySelector('#perHour').value;
-    ySalFromHourlyWage = `${Math.round(hourlyWage*2080)}`;
+    ySalFromHourlyWage = `${Math.round(hourlyWage*1820)}`;
     salaryInYears.innerText = ySalFromHourlyWage;
     let fedTax = calFederalTax(ySalFromHourlyWage);
     let provTax = calProvincialTax(ySalFromHourlyWage,userProvince);
     console.log(`Federal tax = ${fedTax} and provincial tax is ${provTax}`);
     totalTax = Math.round(fedTax + provTax);
+
+    //adding text to show weekly salary
+    salaryBiWeeklyFromHourly.innerText = Math.round((ySalFromHourlyWage-totalTax)/26);
+
+
     console.log(`Total tax is ${totalTax}`);
    // console.log(ySalFromHourlyWage);
     totalTaxContent.innerHTML = `The total tax paid is $${totalTax}, which is ${((totalTax/(ySalFromHourlyWage)).toFixed(2))*100}% which comes down to $${(totalTax/2080).toFixed(2)} every hour you work`; 
